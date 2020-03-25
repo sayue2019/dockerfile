@@ -1,6 +1,10 @@
 FROM alpine
 MAINTAINER sayue2019@qq.com
 
+# replace
+RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories
+RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories
+
 # install mysql-client
 RUN apk update && \
     apk add mysql-client

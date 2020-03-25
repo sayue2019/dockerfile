@@ -1,6 +1,10 @@
 FROM python:3.6.8-alpine3.8
 MAINTAINER sayue <sayue2019@qq.com>
 
+# 替换阿里云的源
+RUN echo "http://mirrors.aliyun.com/alpine/v3.8/main/" > /etc/apk/repositories
+RUN echo "http://mirrors.aliyun.com/alpine/v3.8/community/" >> /etc/apk/repositories
+
 ENV LANG en_US.UTF-8
 
 # install base
@@ -26,8 +30,8 @@ RUN mkdir -p /opt/phantomjs && apk add --update --no-cache tar curl ca-certifica
 
 # install requirements
 COPY requirements.txt /opt/pyspider/requirements.txt
-RUN pip install --upgrade pip \
-    && pip install -r /opt/pyspider/requirements.txt \
+RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com \
+    && pip install -r /opt/pyspider/requirements.txt -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com \
     && apk del --no-cache .build-deps
 
 # add all repo

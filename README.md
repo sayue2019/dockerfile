@@ -13,6 +13,8 @@ Installation
 * `cd Dockerfile dir`
 * `docker build --no-cache -t imageName:tagName .`
 
+**WARNING:** If you are in China, please use the dockerfile under the cn folder.
+
 License
 -------
 Licensed under the Apache License, Version 2.0
