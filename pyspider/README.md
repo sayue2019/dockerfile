@@ -10,7 +10,9 @@ I use these dockerfiles myself in k8s. **[TRY IT NOW!]**
 Installation
 ------------
 
-* `cd Dockerfile dir`
+* `git clone git@github.com:binux/pyspider.git`
+* `cd pyspider`
+* `cp -f ~/dockerfile/pyspider/dockerfile dockerfile`
 * `docker build --no-cache -t imageName:tagName .`
 
 **WARNING:** If you are in China, please use the dockerfile under the cn folder.
